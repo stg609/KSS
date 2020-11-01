@@ -1,0 +1,25 @@
+.menu {
+    flex-grow: 1;
+    display: flex;
+    align-items: stretch;
+}
+
+.menuItem {
+    margin: 0 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.5s linear;
+    color:rgba(255, 255, 255, 0.65);
+
+    &:hover {
+        background-color: #389bf7;
+        color:rgba(255, 255, 255, 0.65);
+    }
+
+    &.active {
+        background-color: #389bf7;
+        color:rgba(255, 255, 255, 0.65);
+        cursor: default;
+    }
+}

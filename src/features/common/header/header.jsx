@@ -1,10 +1,20 @@
 import React from 'react';
-import { SignInOut } from '../signinout';
-import { WeatherForca } from '../weatherForca';
 import styles from './styles.module.scss';
 
-export const Header = () => (
+
+export const Header = ({ children }) => (
     <header className={styles.header}>
-        <div><WeatherForca /><SignInOut /></div>
+        {children}
     </header>
 );
+
+
+Header.Logo = ({ children }) => (
+    <div className={styles.logo} >
+        {children}
+    </div>);
+
+Header.Content = ({ children }) => (
+    <div className={styles.content} >
+        {children}
+    </div>);

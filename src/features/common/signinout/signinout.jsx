@@ -10,23 +10,23 @@ import styles from './styles.module.scss';
 const SignInPageWithoutConnect = (props) => {
     const { isSignInBegin, isSignOutBegin, currentUser, signInAsync, signOutAsync } = props;
     if (isSignInBegin) {
-        return (<p>即将跳转到登陆页面，请稍后...</p>);
+        return (<p className={styles.signInOut}>即将跳转到登陆页面，请稍后...</p>);
     }
 
     if (isSignOutBegin) {
-        return (<p>即将跳转到登出页面，请稍后...</p>);
+        return (<p className={styles.signInOut}>即将跳转到登出页面，请稍后...</p>);
     }
 
     if (currentUser) {
-        return (<span className={styles.signInOut}>
-            <strong>Welcome, {currentUser.profile.name}! </strong>
+        return (<div className={styles.signInOut}>
+            <strong>Welcome, {currentUser.profile.name}! &nbsp; </strong>
             <Button onClick={() => signOutAsync()}>登 出</Button>
-        </span>);
+        </div>);
     }
 
-    return (<span className={styles.signInOut}>
+    return (<div className={styles.signInOut}>
         <Button onClick={() => signInAsync()}>登 录</Button>
-    </span>);
+    </div>);
 };
 
 const mapStateToProps = (state) => ({
