@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { DefaultLayout } from '../layouts';
-import { Empty ,List, Skeleton, Tabs, Space, Typography } from 'antd';
-import { Link } from 'react-router-dom';
+import { Empty, List, Skeleton, Tabs, Space, Typography } from 'antd';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
-import {BackTopWithStyle} from '../../common/backTop';
+import { BackTopWithStyle } from '../../common/backTop';
 
 const { TabPane } = Tabs;
 
-export const IconText = ({ icon, text }) => (
+const IconText = ({ icon, text }) => (
     <Space>
         {React.createElement(icon)}
         {text}
@@ -16,6 +16,7 @@ export const IconText = ({ icon, text }) => (
 
 export const CoursesPage = () => {
     const [loading, setLoading] = useState(true);
+    const match = useRouteMatch();
 
     useEffect(() => {
         // Update the document title using the browser API
@@ -23,7 +24,7 @@ export const CoursesPage = () => {
             setLoading(false);
         }, 2000);
     });
-
+    console.log(match);
     const listData = [];
     for (let index = 0; index < 10; index++) {
         listData.push({
@@ -33,7 +34,7 @@ export const CoursesPage = () => {
             author: 'Charlie',
             date: "2020-11-1 11:11",
             desc: "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
-            href: `/courses/${index}`
+            href: `${match.url}/${index}`
         })
     }
 
@@ -71,11 +72,13 @@ export const CoursesPage = () => {
             </TabPane>
             <TabPane tab="最新上架" key="2">
                 <Empty />
-        </TabPane>
+            </TabPane>
         </Tabs>
 
         <BackTopWithStyle>
             <div>UP</div>
         </BackTopWithStyle>
+
+
     </DefaultLayout>)
 };

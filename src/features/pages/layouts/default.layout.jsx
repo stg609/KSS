@@ -58,6 +58,6 @@ export const DefaultLayout = withRouter(props => {
             {(props.hideBreadcrumb !== false) && <Divider />}
             {props.children}
         </Content>
-        <Footer />
+        <Footer />    
     </div>
 });
