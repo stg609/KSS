@@ -1,8 +1,11 @@
+/* eslint-disable import/prefer-default-export */
 import React, { useState, useEffect } from 'react';
-import { DefaultLayout } from '../layouts';
-import { Empty, List, Skeleton, Tabs, Space, Typography } from 'antd';
+import {
+    Empty, List, Skeleton, Tabs, Space, Typography,
+} from 'antd';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import { DefaultLayout } from '../layouts';
 import { BackTopWithStyle } from '../../common/backTop';
 
 const { TabPane } = Tabs;
@@ -29,13 +32,13 @@ export const CoursesPage = () => {
     for (let index = 0; index < 10; index++) {
         listData.push({
             id: index,
-            title: ".Net Core 基础入门",
+            title: '.Net Core 基础入门',
             img: 'https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png',
             author: 'Charlie',
-            date: "2020-11-1 11:11",
-            desc: "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
-            href: `${match.url}/${index}`
-        })
+            date: '2020-11-1 11:11',
+            desc: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+            href: `${match.url}/${index}`,
+        });
     }
 
     return (<DefaultLayout>
@@ -43,7 +46,7 @@ export const CoursesPage = () => {
             <TabPane tab="全部" key="1">
                 <List itemLayout="vertical" size="large"
                     dataSource={listData}
-                    renderItem={item => (
+                    renderItem={(item) => (
                         <List.Item
                             key={item.id}
                             actions={[
@@ -80,5 +83,5 @@ export const CoursesPage = () => {
         </BackTopWithStyle>
 
 
-    </DefaultLayout>)
+    </DefaultLayout>);
 };

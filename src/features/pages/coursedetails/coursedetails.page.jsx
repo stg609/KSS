@@ -1,13 +1,14 @@
+/* eslint-disable import/prefer-default-export */
 import React from 'react';
-import { DefaultLayout } from '../layouts';
 import { Typography } from 'antd';
+import { useParams } from 'react-router-dom';
+import { DefaultLayout } from '../layouts';
 import { BackTopWithStyle } from '../../common/backTop';
-import { useParams } from "react-router-dom";
 
 const { Title, Paragraph, Text } = Typography;
 
 export const CourseDetailsPage = () => {
-    let { courseId } = useParams();
+    const { courseId } = useParams();
     return (<DefaultLayout>
         <Typography>
             <Title>Introduction {courseId}</Title>
@@ -29,5 +30,5 @@ export const CourseDetailsPage = () => {
         <BackTopWithStyle>
             <div>UP</div>
         </BackTopWithStyle>
-    </DefaultLayout>)
+    </DefaultLayout>);
 };
