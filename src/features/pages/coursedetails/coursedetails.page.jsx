@@ -9,7 +9,8 @@ const { Title, Paragraph, Text } = Typography;
 
 export const CourseDetailsPage = () => {
     const { courseId } = useParams();
-    return (<DefaultLayout>
+    return (<DefaultLayout
+        header={<title>课程《{courseId}》详情 | K.S.S.</title>}>
         <Typography>
             <Title>Introduction {courseId}</Title>
             <Paragraph>

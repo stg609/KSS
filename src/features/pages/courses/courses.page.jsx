@@ -41,7 +41,8 @@ export const CoursesPage = () => {
         });
     }
 
-    return (<DefaultLayout>
+    return (<DefaultLayout
+        header={<title>课程列表 | K.S.S.</title>}>
         <Tabs defaultActiveKey="1">
             <TabPane tab="全部" key="1">
                 <List itemLayout="vertical" size="large"

@@ -3,6 +3,7 @@ import React from 'react';
 import { Breadcrumb, Divider } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
 import { HomeOutlined } from '@ant-design/icons';
+import { Helmet } from 'react-helmet';
 
 import { Header } from '../../common/header';
 import { Footer } from '../../common/footer';
@@ -45,6 +46,9 @@ export const DefaultLayout = withRouter((props) => {
     })();
 
     return <div className={styles.gridContainer} >
+        <Helmet>
+            {props.header}
+        </Helmet>
         <Header >
             <Header.Logo>K.S.S</Header.Logo>
             <Header.Content>
