@@ -1,0 +1,43 @@
+.markdown {
+
+    table {
+        border: 1px solid #dee2e6;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+        color: #212529;
+
+        thead {
+            th {
+                color: #495057;
+                background-color: #e9ecef;
+                border: 1px solid #dee2e6;
+                vertical-align: bottom;
+                padding: .75rem;
+            }
+        }
+
+        td {
+            padding: .75rem;
+            border: 1px solid #dee2e6;
+        }
+    }
+
+    blockquote {
+        background: #f9f9f9;
+        border-left: 10px solid #ccc;
+        margin: 1.5em 10px;
+        padding: 1em 10px .1em 10px;
+        quotes: "\201C""\201D""\2018""\2019";
+    }
+
+    code {
+        color: #e83e8c;
+        word-wrap: break-word;
+        background: #f8f8f8
+    }
+
+    ul li input[type='checkbox'] {
+        margin-right: 5px;
+    }
+
+}

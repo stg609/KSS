@@ -1,0 +1,22 @@
+.header {
+    background: #001529;
+    color: hsla(0, 0%, 100%, .65);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    box-shadow: 0px 1px 9px #464242;
+}
+
+.content {
+    align-self: stretch;
+    flex-grow: 1;
+    display: flex;
+}
+
+.logo {
+    width: 120px;
+    height: 31px;
+    margin-left: 16px;
+    line-height: 1.5rem;
+    font-size: 1.5rem;
+}
