@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import {tomorrowNightEighties} from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import { useParams } from 'react-router-dom';
@@ -16,7 +16,7 @@ export const CourseDetailsPage = () => {
     const { courseId } = useParams();
     React.useEffect(() => {
         nprogress.done();
-        return () => nprogress.start();
+        return () => nprogress.configure({ showSpinner: false }).start();
     });
     const markdown = `# Intro:  
 1. First item
@@ -81,13 +81,17 @@ h1 {
     `;
 
     const syntaxRender = {
-        code: ({ language, value }) => {
-            return <SyntaxHighlighter language={language} style={tomorrowNightEighties} wrapLongLines={true} showLineNumbers={true} children={value} /> 
-        }
+        code: ({ language, value }) => <SyntaxHighlighter language={language}
+            style={tomorrowNightEighties}
+            wrapLongLines={true}
+            showLineNumbers={true}
+            children={value} />,
     };
     return (<DefaultLayout
         header={<title>课程《{courseId}》详情 | K.S.S.</title>}>
-        <ReactMarkdown className={styles.markdown} plugins={[[gfm, {singleTilde: false}]]} renderers={syntaxRender}  children={markdown} />
+        <ReactMarkdown className={styles.markdown}
+            plugins={[[gfm, { singleTilde: false }]]}
+            renderers={syntaxRender} children={markdown} />
         <BackTopWithStyle>
             <div>UP</div>
         </BackTopWithStyle>

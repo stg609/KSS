@@ -25,9 +25,9 @@ export const CoursesPage = () => {
     const [filter, setFilter] = useState(FilterType.Latest);
     const [isfilterOrderDown, setFilterOrder] = useState(true);
     const match = useRouteMatch();
-    let history = useHistory();
+    const history = useHistory();
 
-    useState(nprogress.start());
+    useState(nprogress.configure({ showSpinner: false }).start());
 
     useEffect(() => {
         setTimeout(() => {
@@ -79,19 +79,19 @@ export const CoursesPage = () => {
                 {isfilterOrderDown ? <ArrowDownOutlined /> : <ArrowUpOutlined />}
             </Space>
         </Dropdown.Button>
-    </Space>
+    </Space>;
 
     const onClickStar = (e, id) => {
         console.log(e + id);
-    }
+    };
 
     const onThumbsUp = (e, id) => {
         console.log(e + id);
-    }
+    };
 
     const onCommentClicked = (id) => {
         history.push(`${match.path}/${id}#comments`);
-    }
+    };
 
     return (<DefaultLayout
         header={<title>课程列表 | K.S.S.</title>}>
@@ -103,8 +103,8 @@ export const CoursesPage = () => {
                         <List.Item
                             key={item.id}
                             actions={!loading && [
-                                <Star text="1" onClick={e => onClickStar(e, item.id)} />,
-                                <ThumbsUp text="156" onClick={e => onThumbsUp(e, item.id)} />,
+                                <Star text="1" onClick={(e) => onClickStar(e, item.id)} />,
+                                <ThumbsUp text="156" onClick={(e) => onThumbsUp(e, item.id)} />,
                                 <MessageOutlined text="2" key="list-vertical-message" onClick={() => onCommentClicked(item.id)} />,
                             ]}
                         >
